@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import "./post.css"
 
 const PostCreate = () => {
   const [title, setTitle] = useState("");
@@ -10,7 +11,7 @@ const PostCreate = () => {
     setTitle("")
   };
   return (
-    <div>
+    <div className="postCreate">
       <h1>CREATE POST</h1>
       <h4>Title</h4>
       <form onSubmit={formSubmitHandler}>
