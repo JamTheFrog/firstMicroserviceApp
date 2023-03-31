@@ -6,12 +6,10 @@ const app = express()
 
 app.use(bodyParser.json())
 
-app.post("/events", (req, res) => {
-    const event = req.body
+app.post("/events",  async (req, res) => {
+    const events = req.body
 
-    axios.post("http://localhost:4000/events", event)
-    axios.post("http://localhost:4001/events", event)
-    axios.post("http://localhost:4002/events", event)
+    await axios.post("http://localhost:4002/events", events)
 
     res.send({ status: "OK" })
 })
