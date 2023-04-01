@@ -22,12 +22,13 @@ app.post("/events", (req, res) => {
              posts[id] = { id, title, comments: [] }
    }
 
-   if(type === "createdComment") {
-    const { postId, commentId, content} = data
+   if(type === "commentModerated") {
+    const { postId, commentId, content, status} = data
+    
 
-    posts[postId].comments.push({commentId, content})
+    if(status !== "disapproved") posts[postId].comments.push({commentId, content})
 
-    console.log(posts[postId].comments)
+
     }
 
     res.send({})
